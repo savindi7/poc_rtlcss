@@ -1,6 +1,13 @@
-const isRTL = true; // Example condition
-const stylesheetPath = isRTL 
-    ? 'css/theme.rtl.min.css' 
-    : 'css/theme.min.css';
-
-document.getElementById('theme-stylesheet').setAttribute('href', stylesheetPath);
+document.addEventListener('DOMContentLoaded', function() {
+    const checkbox = document.getElementById('rtl-checkbox');
+    if (checkbox) {
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          document.documentElement.setAttribute('dir', 'rtl');
+        } else {
+          document.documentElement.removeAttribute('dir');
+        }
+      });
+    }
+  });
+  

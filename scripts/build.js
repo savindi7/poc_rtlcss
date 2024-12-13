@@ -10,8 +10,6 @@ const ltrCSSPath = path.join(cssOutputDir, 'theme.min.css');
 const htmlInputPath = path.resolve(__dirname, '../index.html');
 const htmlOutputPath = path.resolve(__dirname, '../dist/index.html');
 
-const isRTL = true;
-
 if (!fs.existsSync(cssOutputDir)) {
   fs.mkdirSync(cssOutputDir, { recursive: true });
 }
@@ -32,22 +30,8 @@ if (fs.existsSync(cssInputPath)) {
 }
 
 if (fs.existsSync(htmlInputPath)) {
-  // Read the original HTML content
-  let htmlContent = fs.readFileSync(htmlInputPath, 'utf-8');
-
-  if (isRTL) {
-    // Modify the <html> tag to include dir="rtl" if isRTL is true
-    htmlContent = htmlContent.replace(
-      /<html([^>]*)>/,
-      '<html dir="rtl"$1>'
-    );
-    console.log(`dir="rtl" added to the <html> tag`);
-  }
-
-  // Write the modified content to the output file
-  fs.writeFileSync(htmlOutputPath, htmlContent, 'utf-8');
-  console.log(`HTML file written to: ${htmlOutputPath}`);
+  fs.copyFileSync(htmlInputPath, htmlOutputPath);
+  console.log(`HTML file copied to: ${htmlOutputPath}`);
 } else {
   console.error(`HTML file not found: ${htmlInputPath}`);
 }
-
