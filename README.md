@@ -12,7 +12,7 @@ A simple project to convert LTR CSS to RTL and serve the project locally.
    ```
 2. Navigate to the project directory:
     ```bash
-    cd rtlcss_poc
+    cd poc_rtlcss
     ```
 3. Install dependencies:
     ```bash
