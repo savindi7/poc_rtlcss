@@ -11,7 +11,7 @@
   "main": "index.js",
   "scripts": {
     "start": "vercel serve .",
-    "build": "node scripts/generate-css.js",
+    "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
